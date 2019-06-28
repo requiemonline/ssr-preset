@@ -1,0 +1,31 @@
+{
+  "name": "@rqm/<package-name>",
+  "description": "",
+  "version": "1.0.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "homepage": "https://github.com/requiemonline/<package-name>",
+  "bugs": {
+    "url": "https://github.com/requiemonline/<package-name>/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/requiemonline/<package-name>"
+  },
+  "types": "dist/index.d.ts",
+  "keywords": [
+  ],
+  "author": "requiemonline",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -cw"
+  },
+  "devDependencies": {
+    "rollup": "^1.16.2",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-typescript2": "^0.21.2",
+    "typescript": "^3.5.2"
+  },
+  "dependencies": {}
+}
