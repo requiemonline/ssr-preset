@@ -2,8 +2,8 @@
   "name": "@rqm/<package-name>",
   "description": "",
   "version": "1.0.0",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
+  "main": "index.cjs.js",
+  "module": "index.js",
   "homepage": "https://github.com/requiemonline/<package-name>",
   "bugs": {
     "url": "https://github.com/requiemonline/<package-name>/issues"
@@ -19,7 +19,10 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "watch": "rollup -cw"
+    "watch": "rollup -cw",
+    "ts": "tsc -w",
+    "prepublishOnly": "yarn build && copy dist\\* .",
+    "postpublish": "git clean -fd"
   },
   "devDependencies": {
     "rollup": "^1.16.2",

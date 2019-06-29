@@ -12,7 +12,7 @@ const firstPlugins = [
 const plugins = [
   typescript({
     module: 'ESNext',
-    // useTsconfigDeclarationDir: true
+    tsconfigOverride: { compilerOptions: { declaration: true } }
   }),
 ]
 
