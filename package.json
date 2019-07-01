@@ -2,8 +2,8 @@
   "name": "@rqm/<package-name>",
   "description": "",
   "version": "1.0.0",
-  "main": "index.cjs.js",
-  "module": "index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
   "homepage": "https://github.com/requiemonline/<package-name>",
   "bugs": {
     "url": "https://github.com/requiemonline/<package-name>/issues"
@@ -13,22 +13,40 @@
     "url": "https://github.com/requiemonline/<package-name>"
   },
   "types": "dist/index.d.ts",
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "requiemonline",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "yarn run fix && rollup -c",
     "watch": "rollup -cw",
     "ts": "tsc -w",
-    "prepublishOnly": "yarn build && copy dist\\* .",
-    "postpublish": "git clean -fd"
+    "lint": "eslint src/** rollup.config.js",
+    "fix": "eslint src/** rollup.config.js --fix"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.7.0",
+    "lint-staged": "^9.0.0",
+    "prettier": "^1.18.2",
     "rollup": "^1.16.2",
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-typescript2": "^0.21.2",
     "typescript": "^3.5.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
 }

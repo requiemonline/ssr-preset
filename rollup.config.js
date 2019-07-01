@@ -5,7 +5,7 @@ import clear from 'rollup-plugin-clear'
 const firstPlugins = [
 	clear({
     targets: ['dist'],
-    watch: true
+    watch: true,
   }),
 ]
 
@@ -16,10 +16,7 @@ const plugins = [
   }),
 ]
 
-const external = [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
-]
+const external = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})]
 
 export default {
 	input: `src/index.ts`,
@@ -28,5 +25,5 @@ export default {
   	{ file: pkg.module, format: 'esm' },
   ],
 	plugins: [...firstPlugins, ...plugins],
-	external
+	external,
 }
