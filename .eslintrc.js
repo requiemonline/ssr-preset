@@ -1,16 +1,28 @@
 module.exports = {
   "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "extends": [
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
-  ],
+    ],
   "plugins": [
     "@typescript-eslint",
+    "react",
+    "react-hooks",
     "prettier"
   ],
   "rules": {
     "prettier/prettier": "error",
+    "react-hooks/rules-of-hooks": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": 0,
+    "react/display-name": "off",
     "no-console": "off",
     "no-mixed-spaces-and-tabs": "off",
     "no-undef": "warn",
@@ -26,6 +38,11 @@ module.exports = {
     "@typescript-eslint/prefer-interface": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-use-before-define": "warn",
+  },
+  "settings": {
+    "react": {
+      "version": "detect", 
+    }
   },
   "env": {
     "browser": true,

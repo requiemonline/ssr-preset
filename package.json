@@ -29,6 +29,8 @@
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-react-hooks": "^1.6.1",
     "husky": "^2.7.0",
     "lint-staged": "^9.0.0",
     "prettier": "^1.18.2",
@@ -36,6 +38,9 @@
     "rollup-plugin-clear": "^2.0.7",
     "rollup-plugin-typescript2": "^0.21.2",
     "typescript": "^3.5.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
   },
   "dependencies": {},
   "husky": {

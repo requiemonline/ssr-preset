@@ -4,26 +4,23 @@ import clear from 'rollup-plugin-clear'
 
 const firstPlugins = [
 	clear({
-    targets: ['dist'],
-    watch: true,
-  }),
+		targets: ['dist'],
+		watch: true,
+	}),
 ]
 
 const plugins = [
-  typescript({
-    module: 'ESNext',
-    tsconfigOverride: { compilerOptions: { declaration: true } }
-  }),
+	typescript({
+		module: 'ESNext',
+		tsconfigOverride: { compilerOptions: { declaration: true } },
+	}),
 ]
 
 const external = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})]
 
 export default {
-	input: `src/index.ts`,
-  output: [
-  	{ file: pkg.main, format: 'cjs' },
-  	{ file: pkg.module, format: 'esm' },
-  ],
+	input: `src/index.tsx`,
+	output: [{ file: pkg.main, format: 'cjs' }, { file: pkg.module, format: 'esm' }],
 	plugins: [...firstPlugins, ...plugins],
 	external,
 }
