@@ -34,7 +34,7 @@ module.exports = {
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "@typescript-eslint/member-delimiter-style": "warn",
+    "@typescript-eslint/member-delimiter-style": "off",
     "@typescript-eslint/prefer-interface": "off",
     "@typescript-eslint/no-var-requires": "off",
     "@typescript-eslint/no-use-before-define": "warn",
