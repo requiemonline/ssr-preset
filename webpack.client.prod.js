@@ -28,6 +28,7 @@ module.exports = merge(common, {
 		new webpack.HashedModuleIdsPlugin(),
 		new CompressionPlugin({
 			cache: './cache/compression',
+			deleteOriginalAssets: true,
 			// compressionOptions: { level: 1 },
 			// minRatio: 0.6,
 		}),

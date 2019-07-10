@@ -5,6 +5,7 @@ import { StaticRouter } from 'react-router-dom'
 import App from '../client/App'
 import path from 'path'
 import fs from 'fs'
+import gzip from 'express-static-gzip'
 
 let templateStart: string, templateEnd: string
 
@@ -20,7 +21,7 @@ fs.readFile(path.resolve('./dist/template.html'), {}, (err, data) => {
 
 const app = express()
 
-app.use(express.static('dist/client'))
+app.use('/', gzip('dist/client'))
 app.get('/**', (req, res, next) => {
 	try {
 		const context = {}
