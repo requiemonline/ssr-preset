@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn run build:client && yarn run build:server && yarn run open:server && yarn run nodemon",
-    "nodemon": "nodemon dist/server/server.js",
+    "nodemon": "nodemon --watch dist --ext js,gz --exec node dist/server/server.js",
     "open:client": "start http://localhost:8080",
     "open:server": "start http://localhost:3001",
     "build:client": "set NODE_ENV=production&& set TARGET_ENV=client&& webpack --config webpack.client.prod.js",
