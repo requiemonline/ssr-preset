@@ -16,7 +16,7 @@
     "watch:client": "yarn run build:client --watch",
     "dev:server": "npm-run-all --parallel open:server watch:server ndm ",
     "dev:client": "set NODE_ENV=development&& set TARGET_ENV=dev&& yarn run open:client && webpack-dev-server --config webpack.client.dev.js",
-    "dev": "npm-run-all --parallel open:server watch:* ndm",
+    "dev": "yarn run build:server && npm-run-all --parallel open:server watch:* ndm",
     "ts": "tsc -w",
     "lint": "eslint ./**/*",
     "fix": "eslint ./**/* --fix"
