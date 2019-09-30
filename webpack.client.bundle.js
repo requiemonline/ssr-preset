@@ -2,18 +2,16 @@ const webpack = require('webpack')
 const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.client.common.js')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const CompressionPlugin = require('compression-webpack-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 
 module.exports = merge(common, {
 	entry: { client: './src/client/client.tsx' },
 	mode: 'production',
-	// mode: 'development',
-	// devtool: 'eval-source-map',
 	output: {
-		path: path.resolve(__dirname, 'dist/client'),
+		path: path.resolve(__dirname, 'dist/bundle'),
 		filename: '[name].[contenthash].js',
 		chunkFilename: '[name].[contenthash].js',
 		publicPath: '/',
@@ -25,17 +23,17 @@ module.exports = merge(common, {
 			include: [/\.js$/, /\.png$/],
 		}),
 		new webpack.HashedModuleIdsPlugin(),
-		new CompressionPlugin({
-			cache: './cache/compression',
-			deleteOriginalAssets: true,
-			// compressionOptions: { level: 1 },
-			// minRatio: 0.6,
-		}),
 		new HtmlPlugin({
 			favicon: 'src/client/favicon.png',
-			filename: '../template.html',
+			filename: 'index.html',
 			title: 'SSR PRESET',
 			template: 'src/template.html',
+		}),
+		new BundleAnalyzerPlugin({
+			analyzerMode: 'static',
+			reportFilename: path.resolve(__dirname, 'bundle_size/report.bundle.html'),
+			openAnalyzer: false,
+			logLevel: 'silent',
 		}),
 	],
 	optimization: {

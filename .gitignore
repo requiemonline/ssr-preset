@@ -1,6 +1,5 @@
 node_modules
 cache
 dist
-report.server.html
-report.client.html
 yarn-error.log
+bundle_size

@@ -12,6 +12,7 @@
     "open:server": "start http://localhost:3001",
     "build:client": "set NODE_ENV=production&& set TARGET_ENV=client&& webpack --config webpack.client.prod.js",
     "build:server": "set NODE_ENV=production&& set TARGET_ENV=server&& webpack --config webpack.server.js",
+    "build:bundle": "set NODE_ENV=production&& set TARGET_ENV=client&& webpack --config webpack.client.bundle.js",
     "watch:server": "yarn run build:server --watch",
     "watch:client": "yarn run build:client --watch",
     "dev:server": "npm-run-all --parallel open:server watch:server ndm ",

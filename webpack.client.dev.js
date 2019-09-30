@@ -15,7 +15,7 @@ module.exports = merge(common, {
 	},
 	plugins: [
 		new HtmlPlugin({
-			favicon: 'src/favicon.png',
+			favicon: 'src/client/favicon.png',
 			title: 'DEV',
 			template: 'src/template.html',
 		}),

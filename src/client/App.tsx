@@ -4,7 +4,8 @@ import { css } from '@emotion/core'
 import { animated, useSpring } from '@react-spring/web'
 
 type Translate3dT = (...coords: [number, number?, number?]) => string
-const translate3d: Translate3dT = (...[x, y, z]) => `translate3d(${x || 0}px, ${y || 0}px, ${z || 0}px)`
+const translate3d: Translate3dT = (...[x, y, z]) =>
+	`translate3d(${x || 0}px, ${y || 0}px, ${z || 0}px)`
 
 const getCoord = (axis: 'x' | 'y') =>
 	(Math.random() - 0.5) * (window[axis === 'x' ? 'innerWidth' : 'innerHeight'] * 0.7)

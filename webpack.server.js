@@ -15,7 +15,7 @@ module.exports = merge(common, {
 	plugins: [
 		new BundleAnalyzerPlugin({
 			analyzerMode: 'static',
-			reportFilename: path.resolve(__dirname, 'report.server.html'),
+			reportFilename: path.resolve(__dirname, 'bundle_size/report.server.html'),
 			openAnalyzer: false,
 			logLevel: 'silent',
 		}),
