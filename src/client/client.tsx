@@ -6,14 +6,20 @@ import { BrowserRouter } from 'react-router-dom'
 
 const root = document.getElementById('root')
 
-if (process.env.NODE_ENV === 'production')
+if (process.env.NODE_ENV === 'production') {
 	hydrate(
 		<BrowserRouter>
 			<App />
 		</BrowserRouter>,
 		root,
 	)
-else {
+
+	if ('serviceWorker' in navigator) {
+		window.addEventListener('load', () => {
+			navigator.serviceWorker.register('/service-worker.js')
+		})
+	}
+} else {
 	const HotApp = hot(App)
 	render(
 		<BrowserRouter>
@@ -21,9 +27,4 @@ else {
 		</BrowserRouter>,
 		root,
 	)
-	if ('serviceWorker' in navigator) {
-		window.addEventListener('load', () => {
-			navigator.serviceWorker.register('/service-worker.js')
-		})
-	}
 }
