@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, hydrate } from 'react-dom'
 import { hot } from 'react-hot-loader/root'
-import App from './App'
+import App from 'App'
 import { BrowserRouter } from 'react-router-dom'
 
 const root = document.getElementById('root')
